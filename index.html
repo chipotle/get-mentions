@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Widget</title>
+    <script src="get-mentions.js" async></script>
+    <style>
+    body {
+      font-size: 1.2rem;
+      font-family: system-ui, sans-serif;
+      line-height: 1.4;
+      max-width: 42em;
+      margin: 1em auto;
+    }
+    
+    .mention-counts span + span::before {
+      content: ' • ';
+    }
+    
+    #webmentions h2 {
+      font-size: 100%;
+    }
+    
+    #webmentions ul {
+      padding-inline-start: 0;
+      list-style-type: none;
+    }
+    
+    #webmentions img {
+      height: 3em;
+      border-radius: 50%;
+      border: solid 1px #333;
+    }
+    
+    .likes ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .likes li {
+      margin: 0.5em;
+    }
+    
+    .replies li {
+      margin-bottom: 0.5em;
+      clear: both;
+    }
+    
+    .replies img {
+      float: left;
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    </style>
+</head>
+<body>
+    <h1>Imaginary blog post</h1>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+    <div id="webmentions">Loading...</div>
+</body>
+</html>

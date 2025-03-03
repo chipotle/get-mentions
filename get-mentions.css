@@ -1,0 +1,46 @@
+// Example CSS for styling webmentions
+
+body {
+  font-size: 1.25rem;
+  font-family: Lato, Seravek, Corbel, sans-serif;
+  max-width: 42em;
+  margin: 1em auto;
+}
+
+.mention-counts span + span::before {
+  content: ' • ';
+}
+
+#webmentions h2 {
+  font-size: 100%;
+}
+
+#webmentions ul {
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+#webmentions img {
+  height: 3em;
+  border-radius: 50%;
+  border: solid 1px #333;
+}
+
+.likes ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.likes li {
+  margin: 0.5em;
+}
+
+.replies li {
+  margin-bottom: 0.5em;
+}
+
+.replies img {
+  float: left;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
