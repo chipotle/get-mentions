@@ -51,7 +51,7 @@ window.addEventListener('load', async function () {
         html += `<div class="replies"><h2>Replies</h2>${formatReplies(mentions, 'in-reply-to')}</div>`;
     }
     if (counts.type['mention'] && config['mentions']) {
-        html += `<div class="replies"><h2>Mentions</h2>${formatReplies(mentions, 'mention-of')}</div>`;
+        html += `<div class="replies"><h2>Mentions</h2>${formatMentions(mentions, 'mention-of')}</div>`;
     }
     container.innerHTML = html;
 });
@@ -160,7 +160,7 @@ function formatLikes(mentions, wmType) {
     return `${result}</ul>`;
 }
 /**
- * Format an HTML string listing replies or mentions by user
+ * Format an HTML string listing replies by user
  *
  * @param mentions Webmention entries to loop over
  * @param wmType Type of webmention to select
@@ -173,6 +173,24 @@ function formatReplies(mentions, wmType) {
         const author = reply.author.name || reply.author.url;
         const imageSrc = reply.author.photo || imagePlaceholder;
         result += `<li><a href="${reply.url}" rel="nofollow"><img src="${imageSrc}"> <span class="author-name">${author}:</span></a> <span class="reply-text">${reply.content.text}<span></li>`;
+    });
+    return `${result}</ul>`;
+}
+/**
+ * Format an HTML string listing mentions by user
+ *
+ * @param mentions Webmention entries to loop over
+ * @param wmType Type of webmention to select
+ * @returns {string}
+ */
+function formatMentions(mentions, wmType) {
+    const replies = getMentions(mentions, wmType);
+    let result = '<ul>';
+    replies.forEach((reply) => {
+        const author = reply.author.name || reply.author.url;
+        const imageSrc = reply.author.photo || imagePlaceholder;
+        const replyText = reply.summary.value || reply.content.text.replace(/\s+/g, ' ').split(' ', 50) + '&hellip;';
+        result += `<li><a href="${reply.url}" rel="nofollow"><img src="${imageSrc}"> <span class="author-name">${author}:</span></a> <span class="reply-text">${replyText}<span></li>`;
     });
     return `${result}</ul>`;
 }

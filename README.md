@@ -67,6 +67,7 @@ Check the example `index.html` file for an example.
 
 ## Version History
 
+1.0.1, 2025-03-05: Display mentions more gracefully (hopefully)
 1.0.0, 2025-03-03: Initial release
 
 ## License
