@@ -1,6 +1,6 @@
 /**
  * Webmention processing script
- * Watts Martin, 2 Mar 2025
+ * Watts Martin, 13 Nov 2026
  *
  * This works with Webmention.io, and displays likes, reposts/boosts,
  * replies, and mentions for individual pages on your website. Just
@@ -172,7 +172,7 @@ function formatReplies(mentions, wmType) {
     replies.forEach((reply) => {
         const author = reply.author.name || reply.author.url;
         const imageSrc = reply.author.photo || imagePlaceholder;
-        result += `<li><a href="${reply.url}" rel="nofollow"><img src="${imageSrc}"> <span class="author-name">${author}:</span></a> <span class="reply-text">${reply.content.text}<span></li>`;
+        result += `<li><a href="${reply.url}" title="${author}" rel="nofollow"><img src="${imageSrc}"></a></li>`;
     });
     return `${result}</ul>`;
 }
@@ -189,8 +189,7 @@ function formatMentions(mentions, wmType) {
     replies.forEach((reply) => {
         const author = reply.author.name || reply.author.url;
         const imageSrc = reply.author.photo || imagePlaceholder;
-        const replyText = reply.summary.value || reply.content.text.replace(/\s+/g, ' ').split(' ', 50) + '&hellip;';
-        result += `<li><a href="${reply.url}" rel="nofollow"><img src="${imageSrc}"> <span class="author-name">${author}:</span></a> <span class="reply-text">${replyText}<span></li>`;
+        result += `<li><img src="${imageSrc}"> <span class="author-name">${author}:</span> <a href="${reply.url}"><span class="reply-text">${reply.url}<span></a></li>`;
     });
     return `${result}</ul>`;
 }

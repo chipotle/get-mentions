@@ -67,12 +67,13 @@ Check the example `index.html` file for an example.
 
 ## Version History
 
+1.1.0, 2026-11-13: Fix mentions; change reply display to icons only
 1.0.1, 2025-03-05: Display mentions more gracefully (hopefully)
 1.0.0, 2025-03-03: Initial release
 
 ## License
 
-Copyright (c) 2025 Watts Martin
+Copyright (c) 2025–26 Watts Martin
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
